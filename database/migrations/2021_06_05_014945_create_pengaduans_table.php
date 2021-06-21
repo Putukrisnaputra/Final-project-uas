@@ -1,0 +1,44 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatePengaduansTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('pengaduans', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id');
+            $table->string('nama');
+            $table->string('jk');
+            $table->string('pekerjaan');
+            $table->string('alamat');
+            $table->date('waktu');
+            $table->string('email');
+            $table->string('namaperusahaan');
+            $table->string('alamatperusahaan');
+            $table->string('jenisperusahaan');
+            $table->string('no_telp');
+            $table->string('pengaduan');
+            $table->string('gambar');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('pengaduans');
+    }
+}
